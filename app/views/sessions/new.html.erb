@@ -1,9 +1,10 @@
 <h1>Sign In</h1>
 
 <%= form_for :user, url: '/sessions' do |f| %>
-  
-  Email: <%= f.text_field :email %>
-  Password: <%= f.password_field :password %>
-  <%= f.submit "Submit" %>
+  <div class="form-group">
+    Email: <%= f.text_field :email, class: 'form-control'%>
+    Password: <%= f.password_field :password, class: 'form-control' %>
+  </div>
+  <%= f.submit "Submit", class:"btn btn-primary" %>
 
 <% end %>
