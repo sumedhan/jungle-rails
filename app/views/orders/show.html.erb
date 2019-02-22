@@ -5,8 +5,37 @@
   </header>
 
   <div class="order-summary jumbotron">
-    <h4>Thank you for your order!</h4>
+    <h4>Thank you for your order! </h4>
+    <%= @items.inspect %>
+
   </div>
+
+  <div class="panel panel-default items">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Product Name</th>
+          <th>Product Image</th>
+          <th>Product Description</th>
+          <th>Quantity</th>
+          <th>Total Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @items.each do |item| %>
+          <tr>
+            <td><%=item.product.name %></td>
+            <td><img src="<%=item.product.image.tiny%>"></td>
+            <td><%=item.product.description %></td>
+            <td><%=item.quantity %></td>
+            <td><%=humanized_money_with_symbol item.total_price %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
