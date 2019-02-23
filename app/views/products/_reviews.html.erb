@@ -3,6 +3,9 @@
     <% @product.reviews.order(:created_at).reverse.each do |review|%>
     <h3><%= review.user.first_name%></h3>
     <h4>Rating <%= review.rating%></h4>
-    <%= review.description%> 
+    <%= review.description%>
+      <% if current_user && current_user.id == review.user.id%>
+        <%= link_to fa_icon('trash'), [@product, review], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+      <% end %>
     <% end %>
 </article>
