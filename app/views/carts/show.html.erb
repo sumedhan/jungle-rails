@@ -4,7 +4,9 @@
     <h1>My Cart </h1>
   </header>
 
-  <% if enhanced_cart %>
+  <% if enhanced_cart.size == 0%>
+    <h2> Much Empty. <%= link_to "Click here", '/'%> to fill your cart with Jungle products. </h2> 
+  <% else %>
     <div class="panel panel-default items">
       <table class="table table-bordered">
         <thead>
@@ -49,7 +51,5 @@
         <% end %>
       </div>
     </div>
-  <% else %>
-    <h2> Much Empty. <%= link_to "Click here!", '/'%> to fill your cart with goodies. </h2>
   <% end %>
 </section>
