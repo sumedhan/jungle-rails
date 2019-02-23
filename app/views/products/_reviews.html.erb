@@ -1,0 +1,8 @@
+<article class="review-detail">
+  <h2>Customer Reviews</h2>
+    <% @product.reviews.order(:created_at).reverse.each do |review|%>
+    <h3><%= review.user.first_name%></h3>
+    <h4>Rating <%= review.rating%></h4>
+    <%= review.description%> 
+    <% end %>
+</article>
