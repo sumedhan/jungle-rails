@@ -36,6 +36,7 @@ puts "Re-creating Products ..."
 Product.destroy_all
 User.destroy_all
 
+product1 = 
 cat1.products.create!({
   name:  'Men\'s Classy shirt',
   description: Faker::Hipster.paragraph(4),
@@ -44,6 +45,7 @@ cat1.products.create!({
   price: 64.99
 })
 
+product2 =
 cat1.products.create!({
   name:  'Women\'s Zebra pants',
   description: Faker::Hipster.paragraph(4),
@@ -132,6 +134,62 @@ cat3.products.create!({
   quantity: 23,
   price: 2_483.75
 })
+
+User.create!(
+  email: 'dobo@dobo.com',
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  password: 'abc'
+)
+
+User.create!(
+  email: 'hp@hp.com',
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  password: 'green'
+)
+
+User.create!(
+  email: 'a@a.com',
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  password: 'a'
+)
+
+Review.create!(
+  product_id: 1,
+  user_id: 1,
+  description: Faker::Hipster.paragraph(3),
+  rating: 5
+)
+
+Review.create!(
+  product_id: 2,
+  user_id: 2,
+  description: Faker::Hipster.paragraph(2),
+  rating: 1
+)
+
+Review.create!(
+  product_id: 1,
+  user_id: 3,
+  description: Faker::Hipster.paragraph(4),
+  rating: 4
+)
+
+Review.create!(
+  product_id: 3,
+  user_id: 1,
+  description: Faker::Hipster.paragraph(3),
+  rating: 2
+)
+
+Review.create!(
+  product_id: 2,
+  user_id: 3,
+  description: Faker::Hipster.paragraph(1),
+  rating: 3
+)
 
 
 
