@@ -1,22 +1,14 @@
 <article class="review-detail">
-
-  <h2>Customer Reviews</h2>
-
+  <% if @product.reviews.size > 0 %>
+    <h2>Customer Reviews</h2>
     <% @product.reviews.order(:created_at).reverse.each do |review|%>
-    <h5><%= review.user.first_name%></h5>
-    <div class="rating">
+    <blockquote class="blockquote">
+      <b><%= review.user.first_name%></b>
       <% review.rating.times do %>
       <%= fa_icon('star')%>
       <% end %>
-    </div>
-
-    <div class="review-description">
-      <%= review.description%>
-    </div>
-
-      <% if current_user && current_user.id == review.user.id%>
-        <%= link_to fa_icon('trash'), [@product, review], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
-      <% end %>
-
+      <p><%= review.description%></p>
+    </blockquote>
     <% end %>
+  <% end %>
 </article>
