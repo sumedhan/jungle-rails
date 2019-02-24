@@ -7,6 +7,9 @@
       <% review.rating.times do %>
       <%= fa_icon('star')%>
       <% end %>
+      <% if current_user && current_user.id == review.user.id%>
+        <%= link_to fa_icon('trash'), [@product, review], method: :delete, data: { confirm: "Are you sure?" } %>
+      <% end %>
       <p><%= review.description%></p>
     </blockquote>
     <% end %>
