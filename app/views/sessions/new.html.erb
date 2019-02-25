@@ -1,10 +1,15 @@
 <h1>Sign In</h1>
-
-<%= form_for :user, url: '/sessions' do |f| %>
+<% if flash[:error]%>
+<div class="alert alert-danger">
+  <h6><%= flash[:error]%></h6>
+</div>
+<%end%>
+<%= form_tag sessions_path do %>
   <div class="form-group">
-    Email: <%= f.text_field :email, class: 'form-control'%>
-    Password: <%= f.password_field :password, class: 'form-control' %>
+    Email: <%= text_field_tag :email, nil,class: 'form-control'%>
+    Password: <%= password_field_tag :password, nil ,class: 'form-control' %>
   </div>
-  <%= f.submit "Submit", class:"btn btn-primary" %>
+  <%= submit_tag "Submit", class:"btn btn-primary" %>
+
 
 <% end %>
