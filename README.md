@@ -1,6 +1,21 @@
 # Jungle
 
-A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
+A mini e-commerce application built with Rails 4.2. 
+
+## Project goals
+- Become familiar with Ruby and the Rails framework
+- Learn how to navigate an existing code-base
+- Use existing code style and approach to implement new features in unfamiliar territory
+- Apply previous learning tactics to research and become familiar with a new paradigm, language and framework
+- A simulation of the real world where feature and bug-fix requests are listed instead of step-by-step instructions on how to implement a solution
+
+## Feature Requests
+
+1. Sold out badge: When a product has 0 quantity, it should display on the product list page as "sold out"
+
+
+2. Admin -> Categories:  Allow administrators to create and view categories.
+
 
 
 ## Setup
