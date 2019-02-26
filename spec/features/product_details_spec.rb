@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.feature "ProductDetails", type: :feature do
+RSpec.feature "ProductDetails", type: :feature, js: true do
    # SETUP
-   before :each do
+  before :each do
     @category = Category.create! name: 'Apparel'
 
     10.times do |n|
@@ -15,4 +15,14 @@ RSpec.feature "ProductDetails", type: :feature do
       )
     end
   end
+
+  scenario "They are able to navigate from the home page to the product detail page by clicking on a product" do
+    visit root_path
+    first('article.product header').click
+    visit '/products/1'
+    save_screenshot "product.png"
+  end
+
+
 end
+ 
