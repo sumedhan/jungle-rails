@@ -75,7 +75,7 @@ cat1.products.create!({
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel5.jpg'),
   quantity: 8,
-  price: 1_225.00
+  price: 1225.00
 })
 
 cat1.products.create!({
@@ -139,21 +139,24 @@ User.create!(
   email: 'dobo@dobo.com',
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
-  password: 'abc'
+  password: '123456789',
+  password_confirmation: '123456789' 
 )
 
 User.create!(
   email: 'hp@hp.com',
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
-  password: 'green'
+  password: 'voldemort',
+  password_confirmation: 'voldemort'
 )
 
 User.create!(
-  email: 'a@a.com',
+  email: 'first@user.com',
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
-  password: 'a'
+  password: 'harrypotter',
+  password_confirmation: 'harrypotter'
 )
 
 Review.create!(
