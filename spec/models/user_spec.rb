@@ -3,7 +3,7 @@ require 'faker'
 
 RSpec.describe User, type: :model do
   user = described_class.create(
-    email: Faker::Internet.email,
+    email: "test@jungle.com",
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     password: "password123",
@@ -74,6 +74,19 @@ RSpec.describe User, type: :model do
       expect(user).to_not be_valid
     end
 
+  end
+
+  describe '.authenticate_with_credentials' do
+    it "should be true if email and password match the credentials.(Email is not case-sensitive and password is" do 
+      user1 = User.authenticate_with_credentials("test@jungle.com", "password123")
+      user2 = User.authenticate_with_credentials("test@test.com", "Password123")
+      user3 = User.authenticate_with_credentials("TEST@test.com", "password123")
+      user4 = User.authenticate_with_credentials("    test@jungle.com", "password123")
+      expect(user1).to be_truthy
+      expect(user2).to be_nil
+      expect(user3).to be_nil
+      expect(user4).to be_truthy
+    end
   end
 
 end
