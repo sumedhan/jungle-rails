@@ -1,12 +1,10 @@
 <article class="review-detail">
-  <% if @product.reviews.size > 0 %>
     <h2>Customer Reviews</h2>
     <% @product.reviews.order(:created_at).reverse.each do |review|%>
     <blockquote class="blockquote">
       <b><%= review.user.first_name%></b>
       <% review.rating.times do %>
       <%= fa_icon('star')%>
-      <% end %>
       <% if current_user && current_user.id == review.user.id%>
         <%= link_to fa_icon('trash'), [@product, review], method: :delete, data: { confirm: "Are you sure?" } %>
       <% end %>
