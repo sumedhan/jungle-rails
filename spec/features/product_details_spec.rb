@@ -19,7 +19,8 @@ RSpec.feature "ProductDetails", type: :feature, js: true do
   scenario "They are able to navigate from the home page to the product detail page by clicking on a product" do
     visit root_path
     first('article.product header').click
-    visit '/products/1'
+    expect(page).to have_current_path("/products/10")
+    expect(page).to have_content("Name")
     save_screenshot "product.png"
   end
 
